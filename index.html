@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css" />
+    <title>Plugin Jquery</title>
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2();
+        });
+
+        $(document).ready(function () {
+            $("#lightSlider").lightSlider({
+                speed: 400, //ms'
+                auto: false,
+                loop: false,
+                slideEndAnimation: true,
+                pause: 2000,
+            });
+        });
+
+        $(function () {
+            var statesList = [
+                "D3 TEKNIK SIPIL",
+                "D4 PERENCANAAN PERUMAHAN DAN PEMUKIMAN",
+                "Teknik Mesin (D4)",
+                "Teknik Mesin (D3)",
+                "Operator & Peralatan Alat Berat (D1)",
+                "D3 Teknik Listrik",
+                "D3 Teknik Informatika",
+                "D3 Teknik Elektronika",
+                "D3 Akuntansi",
+                "D4 Akuntansi",
+                "D3 Administrasi Bisnis",
+                "D4 Administrasi Negara",
+                "D4 Administrasi Bisnis Otomotif"
+
+            ];
+
+            $("#txtState").autocomplete({
+                source: statesList,
+                minLength: 1,
+            }).data("ui-autocomplete")._renderItem = function (ul, item) {
+                ul.attr('role', 'listbox');
+                return $("<li>")
+                    .append("<a role=\"option\">" + item.label + "</a>")
+                    .appendTo(ul);
+            };
+        });
+    </script>
+</head>
+
+<body>
+
+    <ul id="lightSlider">
+        <li id="satu" class="slide">
+            <h3>Teknik Elektro</h3>
+            <p>Teknik Informatika, Teknik Listrik, Teknik Elektronika</p>
+        </li>
+        <li id="dua" class="slide">
+            <h3>Akuntansi</h3>
+            <p>D3-Akuntansi, D4-Akuntansi </p>
+        </li>
+        <li id="tiga" class="slide">
+            <h3>Teknik Sipil</h3>
+            <p>Teknik sipil, Perencanaan Perumahan dan Pemukiman</p>
+        </li>
+        <li id="empat" class="slide">
+            <h3>Teknik Mesin</h3>
+            <p>D-3 Teknik Mesin, D-4 Teknik Mesin, Operator dan Peralatan Alat Berat</p>
+        </li>
+        <li id="lima" class="slide">
+            <h3>Teknologi Pertanian</h3>
+            <p>Teknologi Pengolahan Hasil Perkebunan (D3),Manajemen Perkebunan (D4), dan Budidaya Tanaman Perkebunan
+                (D4).
+            </p>
+        </li>
+        <li id="enam" class="slide">
+            <h3>Administrasi Bisnis</h3>
+            <p>Administrasi Bisnis, Administrasi Negara, Administrasi Bisnis Otomotif</p>
+        </li>
+    </ul>
+
+    <div class="form">
+        <form action="">
+            <h1>Form Pendaftaran Vaksin <br>Mahasiswa Politeknik Negeri Pontianak</h1>
+            <label for="fname">Nama lengkap</label><br><br>
+            <input type="text" id="name" name="name" required><br><br>
+    
+            <label for="datem">Tanggal lahir</label><br><br>
+            <input type="date" id="date" name="date" required><br><br>
+    
+            <div class="custom-auto">
+                <section>
+                    <form id="frm_Test" action="#" method="get">
+                        <p>Prodi</p>
+                        <div class="ui-widget">
+                            <label for="txtState"></label>
+                            <input id="txtState">
+                        </div>
+                    </form>
+                </section>
+            </div>
+            <br><br>
+    
+            <p>Riwayat Penyakit (jika ada)</p>
+            <select class="js-example-basic-multiple" name="states[]" multiple="multiple">
+                <option value="asma">Asma</option>
+                <option value="tipes">Tipes</option>
+                <option value="AI">Autoimun</option>
+                <option value="AB">Alergi Berat</option>
+                <option value="hipertensi">Tekanan darah tinggi</option>
+            </select>
+
+            <br><br><br>
+
+            <input id="submit" type="submit" value="Daftar">
+        </form>
+    </div>
+
+    <div class="footer">
+        <h3>Bella Namira Syaidatulnissa</h3>
+        <h3>3201916007</h3>
+        <h3>4D TIF</h3>
+    </div>
+</body>
+
+</html>
